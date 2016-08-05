@@ -46,7 +46,3 @@ projects = 8.times.map do
     end
   end
 end
-
-# projects.each do |project|
-#   project.users << adminusers.sample
-# end
