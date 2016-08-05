@@ -23,7 +23,7 @@ class ProjectsController < ActionController::Base
   def create
     @project = Project.new(project_params)
     if @project.save!
-      render :developer_dashboard
+      render :admin_dashboard
     else
       render :json @project.errors
     end
