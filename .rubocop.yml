@@ -1,5 +1,6 @@
 AllCops:
   DisabledByDefault: true
+  TargetRubyVersion: 2.3
 
 #################### Lint ################################
 
@@ -615,6 +616,9 @@ Style/ExtraSpacing:
 Style/FileName:
   Description: 'Use snake_case for source file names.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#snake-case-files'
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/InitialIndentation:
