@@ -25,26 +25,28 @@ end
 
 
 projects = 8.times.map do
-  Project.create!(
+  tempproject = Project.create!(
   title: Faker::Company.catch_phrase
   )
-end
-
-projects.each do |project|
-  project.users << adminusers.sample
-end
-
-
-userprojects = 50.times.map do
-  user = devusers.sample
-  project = projects.sample
-  project.users << user
-  timers = 3.times.map do
-    Timer.create!(
-    value: rand(12),
-    user: user,
-    project: project
-    )
+  tempproject.users << adminusers.sample
+  usedusers = []
+  userprojects = 4.times.map do
+    user = devusers.sample
+    while usedusers.include?(user)
+      user = devusers.sample
+    end
+    usedusers << user
+    tempproject.users << user
+    timers = 3.times.map do
+      Timer.create!(
+      value: rand(12),
+      user: user,
+      project: tempproject
+      )
+    end
   end
-
 end
+
+# projects.each do |project|
+#   project.users << adminusers.sample
+# end
