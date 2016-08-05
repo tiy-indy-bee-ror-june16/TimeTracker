@@ -1,4 +1,4 @@
-class ProjectsController < ActionController::Base
+class ProjectsController < ApplicationController
   before_action :require_user, except: [:index]
   before_action :require_admin, only: [:new, :create, :assign_user]
 
@@ -25,6 +25,7 @@ class ProjectsController < ActionController::Base
     if @project.create(project_params)
       render :admin_dashboard
     else
+      #render :json? Or just flash?
       render :json @project.errors
     end
   end
