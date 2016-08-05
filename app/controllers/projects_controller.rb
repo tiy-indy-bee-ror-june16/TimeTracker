@@ -1,13 +1,13 @@
-class ProjectsController < ActionController::Base
+class ProjectsController < ApplicationController
   before_action :require_user, except: [:index]
   before_action :require_admin, only: [:new, :create, :assign_user]
 
   def index
-    if current_user.role == "admin"
+    if current_user&.role == "admin"
       @projects = admin_projects.all
       #future view with this name in views/projects
       render :admin_dashboard
-    elsif current_user.role == "developer"
+    elsif current_user&.role == "developer"
       @projects = current_user.projects
       #future view with this name in views/projects
       render :developer_dashboard
@@ -25,7 +25,7 @@ class ProjectsController < ActionController::Base
     if @project.save!
       render :admin_dashboard
     else
-      render :json @project.errors
+      render json: @project.errors
     end
   end
 
