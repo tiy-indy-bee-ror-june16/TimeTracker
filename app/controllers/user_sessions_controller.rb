@@ -8,10 +8,10 @@ class UserSessionsController < ApplicationController
        session[:username] = @user.username
        redirect_to root_path
      else
-       flash[:danger] = "Incorrect Password"
+       redirect_to root_path, flash: {danger: "Incorrect Password"}
      end
    else
-     flash[:danger] = "User Not Found"
+      redirect_to root_path, flash: {danger: "User Not Found"}
    end
  end
 
