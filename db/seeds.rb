@@ -26,9 +26,9 @@ end
 
 projects = 8.times.map do
   tempproject = Project.create!(
-  title: Faker::Company.catch_phrase
+  title: Faker::Company.catch_phrase,
+  owner_id: adminusers.sample.id
   )
-  tempproject.users << adminusers.sample
   usedusers = []
   userprojects = 4.times.map do
     user = devusers.sample
