@@ -31,6 +31,8 @@ gem 'faker'
 # added haml gems for view formatting
 gem 'haml'
 gem "haml-rails", "~> 0.9"
+# added bootstrap gem for formatting
+gem 'bootstrap-sass', '~> 3.3.6'
 
 
 # Use Capistrano for deployment
