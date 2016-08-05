@@ -4,7 +4,7 @@ class ProjectsController < ActionController::Base
 
   def index
     if current_user.role == "admin"
-      @projects = Projects.all
+      @projects = admin_projects.all
       #future view with this name in views/projects
       render :admin_dashboard
     elsif current_user.role == "developer"
