@@ -9,7 +9,7 @@ devusers = 10.times.map do
   User.create!(
   username: Faker::Internet.user_name,
   password: "password",
-  email: Faker::Internet.email,
+  email: Faker::Internet.safe_email,
   role: "developer"
   )
 end
@@ -18,7 +18,7 @@ adminusers = 2.times.map do
   User.create!(
   username: Faker::Internet.user_name,
   password: "password",
-  email: Faker::Internet.email,
+  email: Faker::Internet.safe_email,
   role: "admin"
   )
 end
