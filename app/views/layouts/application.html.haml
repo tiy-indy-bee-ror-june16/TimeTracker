@@ -18,7 +18,7 @@
         .row
           %h1= link_to TimeTrackr, root_path
           - if current_user
-            = link_to "Sign Out", logout_path, method: :delete, class: 'btn btn-default'
+            = link_to "Sign Out", logout_path, class: 'btn btn-default'
           - else
             = link_to "Sign In", login_path, class: 'btn btn-default'
         = yield
