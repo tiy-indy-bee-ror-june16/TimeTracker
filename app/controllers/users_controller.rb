@@ -21,4 +21,10 @@ class UsersController < ApplicationController
      @timers = @user.timers.where(project_id: params[:project_id])
    end
 
+   private
+
+   def user_params
+     params.require(:project).permit(:password, :username, :email, :role)
+   end
+
 end

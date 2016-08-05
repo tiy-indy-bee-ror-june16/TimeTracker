@@ -1,12 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
   helper_method :current_user
 
   def require_user
-    unless current_user
-     flash[:danger] = "Please login or register"
-    end
+    redirect_back(fallback_location: root_path, flash: {danger: "Please login or register."}) unless current_user
   end
 
   def current_user
