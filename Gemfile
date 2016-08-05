@@ -28,6 +28,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
 gem 'faker'
 
+# added haml gems for view formatting
+gem 'haml'
+gem "haml-rails", "~> 0.9"
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
