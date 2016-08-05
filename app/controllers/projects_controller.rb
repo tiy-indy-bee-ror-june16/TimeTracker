@@ -5,13 +5,14 @@ class ProjectsController < ActionController::Base
   def index
     if current_user.role == "admin"
       @projects = Projects.all
-      #future view with this name in views/projects
+      #future view with this name in /views/projects
       render :admin_dashboard
     elsif current_user.role == "developer"
       @projects = current_user.projects
       #future view with this name in views/projects
       render :developer_dashboard
     else
+      #future view with this name in /views/projects
       render :marketing_front_page
     end
   end
@@ -22,7 +23,7 @@ class ProjectsController < ActionController::Base
 
   def create
     if @project.create(project_params)
-      render :developer_dashboard
+      render :admin_dashboard
     else
       render :json @project.errors
     end
@@ -38,7 +39,7 @@ class ProjectsController < ActionController::Base
   private
 
   def project_params
-    params.require(:project).permit(??)
+    params.require(:project).permit(:title, :summary, :estimated_time)
   end
 
   def require_admin
