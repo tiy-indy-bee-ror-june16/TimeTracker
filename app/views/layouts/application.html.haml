@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TimeTrackr
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    - if flash.any?
+      .container
+        .row
+          - flash.each do |key, message|
+            %div{:class => "alert alert-#{key}", :role => "alert"}
+              = simple_format message
+    #wrapper.container
+      .row
+        - if current_user
+          = link_to "Sign Out", logout_path, method: :delete
+        - else
+          = link_to "Sign In", login_path
+      = yield
