@@ -1,0 +1,10 @@
+.row
+  .col-md-10.text-center
+    = form_tag(login_path, method: "post") do |f|
+      %fieldset.form-group
+        = f.label :username
+        = f.text_field :username, :class => "form-control", :placeholder => "Username"
+      %fieldset.form-group
+        = f.label :password
+        = f.text_field :password, :class => "form-control", :placeholder => "Password"
+      = f.submit :class => "btn btn-primary"

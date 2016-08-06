@@ -15,5 +15,13 @@
       %p You have ventured upon this page because someone sent you a link, eh?
       %p If you are a returning developer, please log in to the right.
       %p If you are visiting us for the first time, please click on the
-    .col-md-3
-      -# = render partial
+    .col-md-3.col-md-offset-1
+      = form_tag("/login", method: "post") do
+        %fieldset.form-group
+          = label_tag(:username, "Username:")
+          = text_field_tag(:username)
+        %fieldset.form-group
+          = label_tag(:password, "Password :")
+          = password_field_tag(:password)
+        %fieldser.form-group
+          = submit_tag("Login")
