@@ -4,13 +4,20 @@ class UsersController < ApplicationController
 
    def new
      if params[:project_id]
-       Invite.create(project_id: params[:project_id], email: params[:email])
-     @user = User.new
+       @user = User.new
+       @project = @project.find(params[:project_id])
+     else
+       @user = User.new
    end
 
    def create
      @user = User.new(user_params)
      if @user.save
+       session[:username] = @user.username
+       if Invite.where("project_id = ? AND email = ?" params[:project_id], params[:user][:email])
+         @user.projects << Project.find(params[:project_id])
+         #need to add additional logic to send back message and NOT save if project not found, but still came in with project_id param.
+       end
        session[:username] = @user.username
        redirect_to root_path
      else

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/login' => 'user_sessions#create'
   delete '/logout' => 'user_sessions#destroy'
   post 'projects/assign_user' => 'projects#assign_user'
-
+  post 'projects/invite_user_to_project' => 'projects#invite_user_to_project'
   root 'projects#index'
 
 

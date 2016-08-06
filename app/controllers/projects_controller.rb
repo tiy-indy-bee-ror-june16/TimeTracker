@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   # before_action :require_user, except: [:index]
-  # before_action :require_admin, only: [:new, :create, :assign_user]
+  # before_action :require_admin, only: [:new, :create, :assign_user, :invite_user_to_project]
 
   def index
     # if current_user&.role == "admin"
@@ -18,6 +18,12 @@ class ProjectsController < ApplicationController
     # end
   end
 
+  def invite_user_to_project
+    Invite.create(project_id: params[:project_id], email: params[:email])
+    ProjectAssignmentMailer.invite_user_to_project(params[:email], current_user, Project.find(params[:project_id]))
+    redirect_back(fallback_location: root_path)
+  end
+
   def new
     @project = Project.new
   end
@@ -33,14 +39,9 @@ class ProjectsController < ApplicationController
 
   def assign_user
     #maybe most of this goes in the model?
-<<<<<<< HEAD
     @user = User.find(params[:user_id])
     @user.projects << Project.find(params[:project_id])
-=======
-    @user = User.find(params[:user])
-    @user.projects << Project.find(params[:project])
-    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), current_user).deliver_later
->>>>>>> master
+    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), current_user, Project.find(params[:project_id]).title).deliver_later
   end
 
 
