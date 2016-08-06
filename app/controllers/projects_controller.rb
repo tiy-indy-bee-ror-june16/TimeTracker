@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :assign_user, :invite_user_to_project]
 
   def index
-     if current_user&.role == "admin"
+    if current_user&.role == "admin"
       @admin_projects = current_user.admin_projects
       @developers = User.where(role: "developer")
       #future view with this name in views/projects
@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
     #maybe most of this goes in the model?
     @user = User.find(params[:user_id])
     @user.projects << Project.find(params[:project_id])
-    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), current_user, Project.find(params[:project_id]).title).deliver_later
+    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), Project.find(params[:project_id]).title).deliver_later
   end
 
 
