@@ -1,9 +1,16 @@
 .row
-  .col-xs-10
+  .col-xs-9
     - @admin_projects.each do |admin_project|
       = render "admin_project", :admin_project => admin_project
       -# = admin_project
 
-  .col-xs-2
+  .col-xs-3.add_user_sidebar.well
+    %h4
+      Add A User To Your Project
+    %h6
+      = form_tag do
+        = select_tag(:user_id, options_from_collection_for_select(@developers, :id, :username), :prompt => "Please select")
+        = select_tag(:project_id, options_from_collection_for_select(@admin_projects, :id, :title), :prompt => "Please select")
+
     -# - form
     -#   = "#{developer.username} #{link_to 'Add to a project',  "

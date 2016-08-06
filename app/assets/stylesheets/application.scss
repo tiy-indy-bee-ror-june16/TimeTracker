@@ -2,6 +2,12 @@
 @import "bootstrap";
 
 
-.well {
-  margin: 10px;
+.add_user_sidebar{
+  background-color: grey;
+}
+
+select{
+  text-overflow:ellipsis;
+  width: 200px;
+  margin-top: 15px;
 }
