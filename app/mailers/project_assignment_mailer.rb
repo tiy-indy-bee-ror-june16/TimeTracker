@@ -1,9 +1,16 @@
 class ProjectAssignmentMailer < ApplicationMailer
 
-  def assignment_email(user, current_user)
+  def assignment_email(user, project_title)
     @user = user
-    @user2 = current_user
+    @admin = current_user
+    @project_title = project_title
     mail( :to => @user.email, :subject => 'You have been assigned a project')
   end
 
+  def invite_user_to_project(email, admin, project)
+    @email = email
+    @admin = admin
+    @project = project
+    mail(to: @email, :subject => "You have been invited to join #{@admin.username}'s project")
+  end
 end

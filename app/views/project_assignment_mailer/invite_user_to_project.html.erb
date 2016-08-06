@@ -1,0 +1,5 @@
+<h2>Congratulations!</h2>
+<p>You have been invited to join the project <%="#{@project.title}"%> by <%= @admin.username %>, you can contact them at <%= @admin.email %></p>
+<p>If you are interested in joining, click <%= link_to new_project_user_path(project_id: @project.id)</p>
+<hr>
+<h3>TimeTracker</h3>

@@ -1,2 +1,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.add_user_sidebar{
+  background-color: grey;
+}
+
+.text-white{
+  color:white;
+}
+
+label{
+  margin-top: 10px;
+}
+
+select{
+  text-overflow:ellipsis;
+  width: 200px;
+}
+
+.line-above {
+  border-top: 4px solid white;
+  margin-top: 10px;
+}

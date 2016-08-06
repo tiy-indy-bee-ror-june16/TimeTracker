@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :require_user, except: [:index]
-  before_action :require_admin, only: [:new, :create, :assign_user]
+  before_action :require_admin, only: [:new, :create, :assign_user, :invite_user_to_project]
 
   def index
     if current_user&.role == "admin"
-      @projects = admin_projects.all
+      @admin_projects = current_user.admin_projects
+      @developers = User.where(role: "developer")
       #future view with this name in views/projects
       render :admin_dashboard
     elsif current_user&.role == "developer"
@@ -14,6 +15,12 @@ class ProjectsController < ApplicationController
     else
       render :marketing_front_page
     end
+  end
+
+  def invite_user_to_project
+    Invite.create(project_id: params[:project_id], email: params[:email])
+    ProjectAssignmentMailer.invite_user_to_project(params[:email], current_user, Project.find(params[:project_id]))
+    redirect_back(fallback_location: root_path)
   end
 
   def new
@@ -31,9 +38,9 @@ class ProjectsController < ApplicationController
 
   def assign_user
     #maybe most of this goes in the model?
-    @user = User.find(params[:user])
-    @user.projects << Project.find(params[:project])
-    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), current_user).deliver_later
+    @user = User.find(params[:user_id])
+    @user.projects << Project.find(params[:project_id])
+    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), Project.find(params[:project_id]).title).deliver_later
   end
 
 
