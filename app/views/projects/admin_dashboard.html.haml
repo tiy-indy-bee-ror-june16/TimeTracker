@@ -1,0 +1,31 @@
+.row
+  .col-xs-9
+    - @admin_projects.each do |admin_project|
+      = render "admin_project", :admin_project => admin_project
+      -# = admin_project
+
+  .col-xs-3.add_user_sidebar.well.text-white
+    .row
+      %h3.text-center
+        Add An Existing User To Your Project
+      %h4
+        = form_tag('/projects/assign_user', method: 'post') do
+          .form-group
+            = label_tag(:project_id, "Select a project")
+            = select_tag(:project_id, options_from_collection_for_select(@admin_projects, :id, :title), :prompt => "Please select", class: 'form-control')
+          .form-group
+            = label_tag(:user_id, "Add a user")
+            = select_tag(:user_id, options_from_collection_for_select(@developers, :id, :username), :prompt => "Please select", class: 'form-control')
+          = submit_tag("Submit", class: 'btn')
+    .row.line-above
+      %h3.text-center
+        Invite An Outside Developer To Your Project
+      %h4
+        = form_tag(projects_invite_user_to_project_path) do
+          .form-group
+            = label_tag(:project_id, "Select a project")
+            = select_tag(:project_id, options_from_collection_for_select(@admin_projects, :id, :title), :prompt => "Please select", class: 'form-control')
+          .form-group
+            = label_tag(:email, "Email To Send Invitation")
+            = text_field_tag(:email, nil, placeholder: "Email Address", class:'form-control')
+          = submit_tag("Invite", class: 'btn')

@@ -1,0 +1,12 @@
+.col-xs-6
+  .well
+    %h2.text-center
+      = admin_project.title
+    %h4
+      = admin_project.estimated_time
+    %h4
+      = "Total Running Time: #{admin_project.actual_time}"
+    %p
+      = admin_project.summary
+    - admin_project.users.each do |user|
+      %p= "#{user.username} time spent: #{user.timers.where(project_id: admin_project.id).inject(0){|x, y| x + y.value}}"
