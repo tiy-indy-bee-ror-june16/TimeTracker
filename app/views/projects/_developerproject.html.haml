@@ -1,0 +1,20 @@
+.col-sm-6.developer-project
+  .well
+    %h4
+      = project.title
+      %small
+        = "total time on project: #{project.timers.where(user_id: @current_user.id).inject(0){|sum,x| sum + x.value}.floor}"
+    = link_to "Start Timer", new_project_timer_path(project.id)
+    %div[project, :table]
+      %table.table
+        %thead
+          %tr
+            %th= "Start Time"
+            %th= "End Time"
+            %th= "Time Contribution"
+        %tbody
+          - project.timers.where(user_id: @current_user.id).each do |timer|
+            %tr
+              %td= timer.created_at.strftime("%b %e, %l:%M %p")
+              %td= timer.updated_at.strftime("%b %e, %l:%M %p")
+              %td= timer.value
