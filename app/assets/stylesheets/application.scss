@@ -6,8 +6,12 @@
   background-color: grey;
 }
 
+
+label{
+  margin-top: 10px;
+}
+
 select{
   text-overflow:ellipsis;
   width: 200px;
-  margin-top: 15px;
 }
