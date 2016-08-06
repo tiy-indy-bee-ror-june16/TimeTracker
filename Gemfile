@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
 gem 'faker'
+gem 'figaro'
 
 # added haml gems for view formatting
 gem 'haml'

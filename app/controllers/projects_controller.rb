@@ -33,8 +33,14 @@ class ProjectsController < ApplicationController
 
   def assign_user
     #maybe most of this goes in the model?
+<<<<<<< HEAD
     @user = User.find(params[:user_id])
     @user.projects << Project.find(params[:project_id])
+=======
+    @user = User.find(params[:user])
+    @user.projects << Project.find(params[:project])
+    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), current_user).deliver_later
+>>>>>>> master
   end
 
 
