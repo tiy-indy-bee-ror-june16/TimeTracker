@@ -1,4 +1,7 @@
 .container
   .row
     .col-md-8.text-center
+    - if @project
+      = render partial: "new", locals: {project: @project, user: @user}
+    - else
       = render partial: "new", locals: {user: @user}
