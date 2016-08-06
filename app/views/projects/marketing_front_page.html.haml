@@ -7,12 +7,13 @@
       %p If you are visiting us for the first time, please click on the
       =image_tag "ticktock.gif"
     .col-md-3
-      = form_tag("/login", method: "post") do
-        %fieldset.form-group
-          = label_tag(:username, "Username:")
-          = text_field_tag(:username)
-        %fieldset.form-group
-          = label_tag(:password, "Password :")
-          = password_field_tag(:password)
-        %fieldser.form-group
-          = submit_tag("Login")
+      .well
+        = form_tag("/login", method: "post") do
+          %fieldset.form-group
+            = label_tag(:username, "Username:")
+            = text_field_tag(:username)
+          %fieldset.form-group
+            = label_tag(:password, "Password :")
+            = password_field_tag(:password)
+          %fieldser.form-group
+            = submit_tag("Login")
