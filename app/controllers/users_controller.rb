@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:show]
 
    def new
+     if params[:project_id]
+       Invite.create(project_id: params[:project_id], email: params[:email])
      @user = User.new
    end
 
