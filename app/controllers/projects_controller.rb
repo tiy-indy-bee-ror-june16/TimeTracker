@@ -1,21 +1,20 @@
 class ProjectsController < ApplicationController
-  # before_action :require_user, except: [:index]
-  # before_action :require_admin, only: [:new, :create, :assign_user, :invite_user_to_project]
+  before_action :require_user, except: [:index]
+  before_action :require_admin, only: [:new, :create, :assign_user, :invite_user_to_project]
 
   def index
-    # if current_user&.role == "admin"
-    @current_user = User.find(12)
+     if current_user&.role == "admin"
       @admin_projects = current_user.admin_projects
       @developers = User.where(role: "developer")
       #future view with this name in views/projects
       render :admin_dashboard
-    # elsif current_user&.role == "developer"
-    #   @projects = current_user.projects
-    #   #future view with this name in views/projects
-    #   render :developer_dashboard
-    # else
-    #   render :marketing_front_page
-    # end
+    elsif current_user&.role == "developer"
+      @projects = current_user.projects
+      #future view with this name in views/projects
+      render :developer_dashboard
+    else
+      render :marketing_front_page
+    end
   end
 
   def invite_user_to_project
