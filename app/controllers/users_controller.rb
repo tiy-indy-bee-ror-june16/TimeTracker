@@ -8,6 +8,7 @@ class UsersController < ApplicationController
        @project = @project.find(params[:project_id])
      else
        @user = User.new
+     end
    end
 
    def create
