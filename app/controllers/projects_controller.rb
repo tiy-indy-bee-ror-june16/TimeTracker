@@ -3,17 +3,19 @@ class ProjectsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :assign_user]
 
   def index
-    if current_user&.role == "admin"
-      @projects = admin_projects.all
+    # if current_user&.role == "admin"
+    @current_user = User.find(12)
+      @admin_projects = current_user.admin_projects
+      @developers = User.where(role: "developer")
       #future view with this name in views/projects
       render :admin_dashboard
-    elsif current_user&.role == "developer"
-      @projects = current_user.projects
-      #future view with this name in views/projects
-      render :developer_dashboard
-    else
-      render :marketing_front_page
-    end
+    # elsif current_user&.role == "developer"
+    #   @projects = current_user.projects
+    #   #future view with this name in views/projects
+    #   render :developer_dashboard
+    # else
+    #   render :marketing_front_page
+    # end
   end
 
   def new
