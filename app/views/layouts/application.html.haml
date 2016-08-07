@@ -19,7 +19,7 @@
           %h1= TimeTrackr
           - if current_user
             = "Welcome #{current_user.username}"
-            = link_to "Sign Out", logout_path, method: :delete, class: 'btn btn-default'
+            = link_to "Sign Out", logout_path, method: :delete, class: 'btn btn-success navbar-right'
           - else
             %h4.byline The place where Developers track project time
     = yield
