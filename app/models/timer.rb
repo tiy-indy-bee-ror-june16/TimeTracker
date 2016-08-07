@@ -11,4 +11,8 @@ class Timer < ApplicationRecord
     self.save
   end
 
+  def formatted
+    Time.at(self.value).utc.strftime("%H:%M:%S")
+  end
+
 end
