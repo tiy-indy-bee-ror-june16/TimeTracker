@@ -3,7 +3,7 @@
     %h4
       = project.title
       %small
-        = "total time on project: #{project.timers.where(user_id: @current_user.id).inject(0){|sum,x| sum + x.value}.floor}"
+        = "total time on project: #{project.timers.where(user_id: @current_user.id).inject(0){|sum,x| sum + x.value}.round(1)}"
     %p
       = link_to "Start Timer", new_project_timer_path(project.id), :id => "starttimer-#{project.id}" , :class => "timerstartbutton" , :display => "inline"
       = link_to "End Timer", new_project_timer_path(project.id), :id => "endtimer-#{project.id}" , :class => "timerendbutton" , :display => "inline"
@@ -11,7 +11,6 @@
       %p= @current_user.id
     .projectid{:style => "display:none"}
       %p= project.id
-
     %div[project, :table]
       %table.table
         %thead

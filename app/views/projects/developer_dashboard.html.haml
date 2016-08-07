@@ -5,10 +5,10 @@
         ="#{@current_user.username} current projects"
     .col-sm-2.pull-right
       %form.form-inline{:name => "clock"}
-        %label{:for => "jstimer", :id => "timer label"} Current Project Timer
+        %label{:for => "jstimer", :id => "timer-title"} Current Project Timer
         %input.form-control{:label => "Project Timer", :name => "stwa", :size => "12", :style => "text-align:center", :type => "text", :value => "00 : 00 : 00"}
-        %input.btn.btn-default{:name => "theButton", :onclick => "stopwatch(this.value);", :type => "button", :value => "Start", :style => ""}
-        %input.btn.btn-default{:onclick => "resetIt();reset();", :type => "button", :value => "Reset", :style => ""}
+        %input.btn.btn-default{:name => "theButton", :onclick => "stopwatch(this.value);", :type => "button", :value => "Start", :style => "display:none  "}
+        %input.btn.btn-default{:onclick => "resetIt();reset();", :type => "button", :value => "Reset", :style => "display:none"}
 
   .row
   - @developerprojects.each do |project|
