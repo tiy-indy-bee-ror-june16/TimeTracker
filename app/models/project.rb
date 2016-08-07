@@ -6,9 +6,10 @@ class Project < ApplicationRecord
   validates :owner_id, presence: true
 
   validates :title, presence: true, uniqueness: true
+  validates :estimated_time, presence: true
 
   def actual_time
-    Timer.where(project_id: id).sum("value")
+    (Timer.where(project_id: id).sum("value")/3600.0).round(1)
   end
 
 end
