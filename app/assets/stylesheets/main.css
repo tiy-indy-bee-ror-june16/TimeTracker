@@ -39,3 +39,10 @@ p {
 .copy, .loginform, .createuser {
   background-color: #a2d6a2;
 }
+
+.username {
+  color: darkgreen;
+  font-family: monospace;
+  font-size: 20px;
+  display: inline-block;
+}
