@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   validates :title, presence: true, uniqueness: true
 
   def actual_time
-    actual_time = Timer.where(project_id: id).sum("value")
+    Timer.where(project_id: id).sum("value")
   end
 
 end
