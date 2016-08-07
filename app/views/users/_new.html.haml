@@ -11,7 +11,7 @@
         %fieldset.form-group
           = f.label :password
           = f.text_field :password, class: "form-control", :placeholder => "Password"
-        = f.submit :class => "btn btn-primary"
+        = f.submit :class => "btn btn-success"
     - else
       = form_for @user do |f|
         %fieldset.form-group
@@ -23,4 +23,4 @@
         %fieldset.form-group
           = f.label :password
           = f.text_field :password, class: "form-control", :placeholder => "Password"
-        = f.submit :class => "btn btn-primary"
+        = f.submit :class => "btn btn-success"
