@@ -1,11 +1,11 @@
 .row
-  .col-md-10
-    = form_tag(login_path, method: "post") do
-      %fieldset.form-group
-        = label_tag(:username, "Username")
-        = text_field_tag(:username)
-      %fieldset.form-group
-        = label_tag(:password, "Password")
-        = text_field_tag(:password)
-      %fieldser.form-group
-        = submit_tag("Login")
+  .col-md-3.col-md-offset-1
+    = form_tag("/login", method: "post") do
+     %fieldset.form-group
+       = label_tag(:username, "Username:")
+       = text_field_tag(:username)
+     %fieldset.form-group
+       = label_tag(:password, "Password :")
+       = password_field_tag(:password)
+     %fieldser.form-group
+       = submit_tag("Login")

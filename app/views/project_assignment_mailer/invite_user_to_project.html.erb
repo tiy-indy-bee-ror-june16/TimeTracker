@@ -1,5 +1,5 @@
 <h2>Congratulations!</h2>
 <p>You have been invited to join the project <%="#{@project.title}"%> by <%= @admin.username %>, you can contact them at <%= @admin.email %></p>
-<p>If you are interested in joining, click <%= link_to new_project_user_path(project_id: @project.id)</p>
+<p>If you are interested in joining, click <%= link_to "here", new_project_user_url(project_id: @project.id, email: @email, host: 'https://calm-harbor-74411.herokuapp.com') %></p>
 <hr>
 <h3>TimeTracker</h3>
