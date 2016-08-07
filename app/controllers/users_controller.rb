@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
    def new
      if params[:project_id]
-       @user = User.new
+       @user = User.new(email: params[:email])
        @project = Project.find(params[:project_id])
      else
        @user = User.new

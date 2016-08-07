@@ -7,5 +7,9 @@
       %form.form-inline{:name => "clock"}
         %label{:for => "jstimer", :id => "timer label"} Current Project Timer
         %input.form-control{:label => "Project Timer", :name => "stwa", :size => "12", :style => "text-align:center", :type => "text", :value => "00 : 00 : 00"}
-        -# %input.btn.btn-default{:name => "theButton", :onclick => "stopwatch(this.value);", :type => "button", :value => "Start"}
-        -# %input.btn.btn-default{:onclick => "resetIt();reset();", :type => "button", :value => "Reset"}
+        %input.btn.btn-default{:name => "theButton", :onclick => "stopwatch(this.value);", :type => "button", :value => "Start", :style => ""}
+        %input.btn.btn-default{:onclick => "resetIt();reset();", :type => "button", :value => "Reset", :style => ""}
+
+  .row
+  - @developerprojects.each do |project|
+    = render 'developerproject', :project => project
