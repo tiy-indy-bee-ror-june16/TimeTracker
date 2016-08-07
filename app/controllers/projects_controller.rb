@@ -13,7 +13,10 @@ class ProjectsController < ApplicationController
       #future view with this name in views/projects
       render :developer_dashboard
     else
-      render :marketing_front_page
+      @current_user = User.find(5)
+      @developerproject = current_user.projects
+      render :developer_dashboard
+      # render :marketing_front_page
     end
   end
 
