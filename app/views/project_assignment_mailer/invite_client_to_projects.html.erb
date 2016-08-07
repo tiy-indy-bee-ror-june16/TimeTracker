@@ -1,5 +1,5 @@
 <h2>Esteemed Company</h2>
-<p>You have been invited to create an account an monitor your projects by <%= @admin.username %>, you can contact them at <%= @admin.email %></p>
+<p>You have been invited to create an account and monitor your projects by <%= @admin.username %>, you can contact them at <%= @admin.email %></p>
 <p>If you are interested, click <%= link_to "here", edit_project_user_url(project_id: @project.id, id: @client.id,email: @email, host: 'https://calm-harbor-74411.herokuapp.com') %></p>
 <hr>
 <h3>Sincerely,</h3>
