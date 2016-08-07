@@ -7,7 +7,21 @@
       -# = admin_project
   .col-xs-3.add_user_sidebar.well.text-white
     .row
-      %h3.text-center
+      %h3
+        Weekly Developer Hour Log
+      %h4
+        - @developers.each do |developer|
+          .row
+            -if developer.overtime?
+              %p.red-text.col-xs-9= "#{developer.username}:"
+              .col-xs-1.red-text
+                = developer.week_hours
+            -else
+              %p.col-xs-9= "#{developer.username}:"
+              .col-xs-1
+                = developer.week_hours
+    .row
+      %h3.text-center.line-above
         Add An Existing User To Your Project
       %h4
         = form_tag('/projects/assign_user', method: 'post') do
