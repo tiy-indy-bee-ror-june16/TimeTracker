@@ -9,4 +9,8 @@ class TimersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def edit
+    @timer = Timer.find(params[:id])
+  end
+
 end
