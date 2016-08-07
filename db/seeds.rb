@@ -23,13 +23,23 @@ adminusers = 2.times.map do
   )
 end
 
+clientusers = 3.times.map do
+  User.create!(
+  username: Faker::Internet.user_name,
+  password: "password",
+  email: Faker::Internet.safe_email,
+  role: "client"
+  )
+end
+
 
 projects = 8.times.map do
   tempproject = Project.create!(
   title: Faker::Company.catch_phrase,
   owner_id: adminusers.sample.id,
   summary: Faker::Company.catch_phrase,
-  estimated_time: Faker::Number.between(50, 70)
+  estimated_time: Faker::Number.between(50, 70),
+  client_id: clientusers.sample.id
   )
   usedusers = []
   userprojects = 4.times.map do

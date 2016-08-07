@@ -44,4 +44,13 @@
           .form-group
             = label_tag(:email, "Email To Send Invitation")
             = text_field_tag(:email, nil, placeholder: "Email Address", class:'form-control')
-          = submit_tag("Invite", class: 'btn')
+          = submit_tag("Invite Developer", class: 'btn')
+    .row.line-above
+      %h3.text-center
+        Invite A Client To See Their Project(s)
+      %h4
+        = form_tag(projects_invite_client_to_projects_path) do
+          .form-group
+            = label_tag(:client_id, "Select a client")
+            = select_tag(:client_id, options_from_collection_for_select(current_user.admin_projects.map{|project| project.client}, :id, :username), :prompt => "Please select", class: 'form-control')
+          = submit_tag("Invite Client", class: 'btn')
