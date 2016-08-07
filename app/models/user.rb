@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :role, presence: true
-  
+
 
   def admin_projects
     if role == "admin"
@@ -18,6 +18,12 @@ class User < ApplicationRecord
     my_projects
   end
 
+  def week_hours
+    timers.where(created_at: Date.today.at_beginning_of_week(:sunday).beginning_of_day..Date.today.end_of_day).sum("value")
+  end
 
+  def overtime?
+    week_hours > 40 ? true : false
+  end
 
 end
