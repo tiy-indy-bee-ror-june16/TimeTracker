@@ -7,8 +7,8 @@
       %form.form-inline{:name => "clock"}
         %label{:for => "jstimer", :id => "timer-title"} Current Project Timer
         %input.form-control{:label => "Project Timer", :name => "stwa", :size => "12", :style => "text-align:center", :type => "text", :value => "00 : 00 : 00"}
-        %input.btn.btn-default{:name => "theButton", :onclick => "stopwatch(this.value);", :type => "button", :value => "Start", :style => "display:none  "}
-        %input.btn.btn-default{:onclick => "resetIt();reset();", :type => "button", :value => "Reset", :style => "display:none"}
+        %input.btn.btn-success{:name => "theButton", :onclick => "stopwatch(this.value);", :type => "button", :value => "Start", :style => "display:none  "}
+        %input.btn.btn-success{:onclick => "resetIt();reset();", :type => "button", :value => "Reset", :style => "display:none"}
 
   .row-eq-height.projectwells
     - @developerprojects.each do |project|

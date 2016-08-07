@@ -5,7 +5,7 @@
       %small
         = "Project Time: #{project.timers.where(user_id: @current_user.id).inject(0){|sum,x| sum + x.value}/3600.floor}hrs"
     %p
-      = button_to "Start Timer", new_project_timer_path(project.id), :id => "starttimer-#{project.id}" , :class => "timerstartbutton btn btn-primary btn-sm" , :display => "inline"
+      = button_to "Start Timer", new_project_timer_path(project.id), :id => "starttimer-#{project.id}" , :class => "timerstartbutton btn btn-success btn-sm" , :display => "inline"
       = button_to "End Timer", new_project_timer_path(project.id), :id => "endtimer-#{project.id}" , :class => "timerendbutton pull-right btn btn-danger btn-sm" , :display => "inline"
     .userid{:style => "display:none"}
       %p= @current_user.id
@@ -27,4 +27,4 @@
               %td= timer.created_at.strftime("%b %e, %l:%M %p")
               %td= timer.updated_at.strftime("%b %e, %l:%M %p")
               %td= timer.formatted
-              %td= link_to "Edit", edit_project_timer_path(project_id: timer.project_id, id: timer.id), :id => "edit-#{timer.id}" , :class => "editbutton btn btn-default btn-xs"
+              %td= link_to "Edit", edit_project_timer_path(project_id: timer.project_id, id: timer.id), :id => "edit-#{timer.id}" , :class => "editbutton btn btn-success btn-xs"
