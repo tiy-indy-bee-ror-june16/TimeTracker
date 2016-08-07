@@ -24,6 +24,15 @@ select{
   margin-top: 10px;
 }
 
+.form-inline {
+  margin-bottom: 10px;
+}
+
+.projectwells {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .admin-wells{
   height: 290px;
   overflow: scroll;
