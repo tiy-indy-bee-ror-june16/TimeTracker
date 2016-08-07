@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def overtime?
-    week_hour > 40 ? true : false
+    week_hours > 40 ? true : false
   end
 
 

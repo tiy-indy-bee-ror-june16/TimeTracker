@@ -30,6 +30,9 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.owner = current_user
+    @client = User.find_or_initialize_by(username: params[:project][:client_name].upcase)
+    @client.update(email: params[:project][:client_email], password: SecureRandom.hex(10), role: "client")
+    @project.client = @client
     if @project.save!
       redirect_to root_path
     else
