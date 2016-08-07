@@ -16,7 +16,7 @@ class TimersController < ApplicationController
 
   def update
     @timer = Timer.find(params[:id])
-    x = DateTime.parse(@timer.value)
+    x = DateTime.parse(params[:timer][:value])
     @timer.value = x.hour * 3600 + x.min * 60 + x.sec
     if @timer.save
       redirect_to root_path
