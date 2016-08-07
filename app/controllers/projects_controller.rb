@@ -8,14 +8,11 @@ class ProjectsController < ApplicationController
       #future view with this name in views/projects
       render :admin_dashboard
     elsif current_user&.role == "developer"
-      @projects = current_user.projects
+      @developerprojects = current_user.projects
       #future view with this name in views/projects
       render :developer_dashboard
     else
-      @current_user = User.find(5)
-      @developerproject = current_user.projects
-      render :developer_dashboard
-      # render :marketing_front_page
+      render :marketing_front_page
     end
   end
 
