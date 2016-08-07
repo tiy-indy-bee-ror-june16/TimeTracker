@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-
   before_action :require_user, only: [:show]
 
+#client messages to admins will only happen in messages controller. There's a messages index that shows all your messsages.
    def new
      if params[:project_id]
        @user = User.new(email: params[:email])
@@ -31,7 +31,20 @@ class UsersController < ApplicationController
    end
 
 # This is how clients get made.
+
+   def edit
+     @user = User.find(params[:id])
+   end
+
    def update
+     @user = User.find(params[:id])
+     if params[:project_id] && Invite.where("project_id = ? AND email = ?", params[:project_id], params[:user][:email])
+       if @user.update(user_params)
+         session[:username] = @user.username
+         redirect_to root_path
+       end
+     end
+     redirect_back(fallback_location: root_path, flash: {danger: "Invalid Information"})
    end
 
    private

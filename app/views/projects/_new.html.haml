@@ -8,6 +8,12 @@
         = f.label :summary
         = f.text_area :summary, :class => "form-control", :placeholder => "Project Summary"
       %fieldset.form-group
-        = f.label :estimated_time
+        = f.label :estimated_time, 'Esimated Time In Hours'
         = f.text_field :estimated_time, :class => "form-control", :placeholder => "Estimated Project Summary"
-      = f.submit :class => "btn btn-success"
+      %fieldset.form-group
+        = f.label :client_name
+        = f.text_field :client_name, :class => "form-control", :placeholder => "Client Name"
+      %fieldset.form-group
+        = f.label :client_email
+        = f.text_field :client_email, :class => "form-control", :placeholder => "Client email (if new client)"
+      = f.submit :class => "btn btn-primary"

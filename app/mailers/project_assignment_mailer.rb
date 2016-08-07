@@ -13,4 +13,12 @@ class ProjectAssignmentMailer < ApplicationMailer
     @project = project
     mail(to: @email, :subject => "You have been invited to join #{@admin.username}'s project")
   end
+
+  def invite_client_to_projects(email, admin, project, client)
+    @email = email
+    @admin = admin
+    @project = project
+    @client = client
+    mail(to: @email, :subject => "Monitor Your Projects On TimeTrackr")
+  end
 end
