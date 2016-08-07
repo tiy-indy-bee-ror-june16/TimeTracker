@@ -7,3 +7,17 @@ body {
 .navbar {
   background-color: #63BF74;
 }
+
+/*style changes for fonts*/
+h1 {
+  color: darkgreen;
+}
+
+a {
+  color: darkgreen;
+}
+
+a:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
