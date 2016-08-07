@@ -32,7 +32,7 @@
             .form-group
               = label_tag(:user_id, "Add a user")
               = select_tag(:user_id, options_from_collection_for_select(@developers, :id, :username), :prompt => "Please select", class: 'form-control')
-            = submit_tag("Submit", class: 'btn')
+            = submit_tag("Submit", class: 'btn btn-success')
     .row.line-above
       %h3.text-center
         Invite An Outside Developer To Your Project
@@ -44,4 +44,4 @@
           .form-group
             = label_tag(:email, "Email To Send Invitation")
             = text_field_tag(:email, nil, placeholder: "Email Address", class:'form-control')
-          = submit_tag("Invite", class: 'btn')
+          = submit_tag("Invite", class: 'btn btn-success')
