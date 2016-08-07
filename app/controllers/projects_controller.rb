@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 
   def invite_user_to_project
     Invite.create(project_id: params[:project_id], email: params[:email])
-    ProjectAssignmentMailer.invite_user_to_project(params[:email], current_user, Project.find(params[:project_id]))
+    ProjectAssignmentMailer.invite_user_to_project(params[:email], current_user, Project.find(params[:project_id])).deliver
     redirect_back(fallback_location: root_path)
   end
 
