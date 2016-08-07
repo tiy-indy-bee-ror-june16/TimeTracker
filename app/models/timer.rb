@@ -15,4 +15,11 @@ class Timer < ApplicationRecord
     Time.at(self.value).utc.strftime("%H:%M:%S")
   end
 
+
+private
+
+  def set_project_actual_time
+    project.actual_time = project.actual_time
+  end
+
 end

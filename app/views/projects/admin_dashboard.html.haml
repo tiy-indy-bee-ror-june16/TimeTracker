@@ -1,12 +1,12 @@
 .row
-  = button_to "Create New Project", new_project_path, class: "btn btn-large btn-primary", method: :get
-.row
   .col-xs-9
     - @admin_projects.each do |admin_project|
       = render "admin_project", :admin_project => admin_project
       -# = admin_project
   .col-xs-3.add_user_sidebar.well.text-white
     .row
+      .row.text-center
+        = button_to "Create New Project", new_project_path, class: "btn btn-large extra-large-btn btn-primary", method: :get
       %h3.text-center
         Add An Existing User To Your Project
       %h4
