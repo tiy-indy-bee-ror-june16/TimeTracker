@@ -3,6 +3,7 @@ class Timer < ApplicationRecord
   belongs_to :project
 
   default_scope { order(created_at: :desc) }
+  after_commit :set_project_actual_time
 
 
 
