@@ -1,0 +1,48 @@
+/*for padding required for fixed navbar*/
+body {
+  padding-top: 120px;
+  background-color: #D6F8D6;
+}
+
+/*background color for navbar*/
+.navbar {
+  background-color: #5cb85c;
+}
+
+/*style changes for fonts*/
+h1 {
+  color: darkgreen;
+  font-family: monospace;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 48px;
+}
+
+h2,h3,h4,h5,h6 {
+  color: darkgreen;
+  font-family: monospace;
+}
+
+a:hover {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.byline {
+  font-family: Verdana;
+}
+
+p {
+  font-family: Verdana;
+}
+
+.copy, .loginform, .createuser, .well {
+  background-color: #a2d6a2;
+}
+
+.username {
+  color: darkgreen;
+  font-family: monospace;
+  font-size: 20px;
+  display: inline-block;
+}
