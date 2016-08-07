@@ -10,12 +10,19 @@ body {
 }
 
 /*style changes for fonts*/
-
-a {
+h1 {
   color: darkgreen;
+  font-family: monospace;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 48px;
 }
 
 a:hover {
   text-decoration: none;
   color: whitesmoke;
+}
+
+.byline {
+  font-family: Verdana;
 }
