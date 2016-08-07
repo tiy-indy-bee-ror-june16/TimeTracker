@@ -27,4 +27,4 @@
               %td= timer.created_at.strftime("%b %e, %l:%M %p")
               %td= timer.updated_at.strftime("%b %e, %l:%M %p")
               %td= timer.formatted
-              %td= link_to "Edit", edit_project_timer_path(timer.project_id, timer.id), :id => "edit-#{timer.id}" , :class => "editbutton btn btn-default btn-xs"
+              %td= link_to "Edit", edit_project_timer_path(project_id: timer.project_id, id: timer.id), :id => "edit-#{timer.id}" , :class => "editbutton btn btn-default btn-xs"
