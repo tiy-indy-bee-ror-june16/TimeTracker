@@ -1,6 +1,6 @@
 class ProjectAssignmentMailer < ApplicationMailer
 
-  def assignment_email(user, admin,  project_title)
+  def assignment_email(user, admin, project_title)
     @user = user
     @admin = admin
     @project_title = project_title
