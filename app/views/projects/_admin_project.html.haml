@@ -10,7 +10,7 @@
       %p
         = admin_project.summary
       - admin_project.users.each do |user|
-        %p= "#{user.username} time spent: #{user.timers.where(project_id: admin_project.id).inject(0){|x, y| x + y.value}/3600}"
+        %p= "#{user.username} time spent: #{(user.timers.where(project_id: admin_project.id).inject(0.0){|x, y| x + y.value}/3600).round(1)}"
   -else
     .well.admin-wells
       %h2.text-center
@@ -22,4 +22,4 @@
       %p
         = admin_project.summary
       - admin_project.users.each do |user|
-        %p= "#{user.username} time spent: #{user.timers.where(project_id: admin_project.id).inject(0){|x, y| x + y.value}/3600}"
+        %p= "#{user.username} time spent: #{(user.timers.where(project_id: admin_project.id).inject(0.0){|x, y| x + y.value}/3600).round(1)}"

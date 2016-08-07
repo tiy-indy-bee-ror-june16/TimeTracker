@@ -9,7 +9,7 @@ class Project < ApplicationRecord
   validates :estimated_time, presence: true
 
   def actual_time
-    (Timer.where(project_id: id).sum("value")/3600.0).round(2)
+    (Timer.where(project_id: id).sum("value")/3600.0).round(1)
   end
 
 end
