@@ -4,4 +4,11 @@ class Timer < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
 
+
+
+  def starttimeadjust
+    self.created_at = self.created_at - self.value
+    self.save
+  end
+
 end

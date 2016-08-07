@@ -1,15 +1,15 @@
 .container
   .row
-    .col-sm-10
+    .col-sm-9
       %h2
         ="#{@current_user.username} current projects"
-    .col-sm-2.pull-right
+    .col-sm-3.pull-right
       %form.form-inline{:name => "clock"}
         %label{:for => "jstimer", :id => "timer-title"} Current Project Timer
         %input.form-control{:label => "Project Timer", :name => "stwa", :size => "12", :style => "text-align:center", :type => "text", :value => "00 : 00 : 00"}
         %input.btn.btn-default{:name => "theButton", :onclick => "stopwatch(this.value);", :type => "button", :value => "Start", :style => "display:none  "}
         %input.btn.btn-default{:onclick => "resetIt();reset();", :type => "button", :value => "Reset", :style => "display:none"}
 
-  .row
-  - @developerprojects.each do |project|
-    = render 'developerproject', :project => project
+  .row-eq-height.projectwells
+    - @developerprojects.each do |project|
+      = render 'developerproject', :project => project
