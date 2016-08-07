@@ -29,8 +29,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.owner = current_user
     if @project.save!
-      render :admin_dashboard
+      redirect_to root_path
     else
       render json: @project.errors
     end
@@ -40,7 +41,8 @@ class ProjectsController < ApplicationController
     #maybe most of this goes in the model?
     @user = User.find(params[:user_id])
     @user.projects << Project.find(params[:project_id])
-    ProjectAssignmentMailer.assignment_email(User.find(params[:id]), current_user, Project.find(params[:project_id]).title).deliver_later
+    ProjectAssignmentMailer.assignment_email(User.find(params[:user_id]), current_user,  Project.find(params[:project_id]).title).deliver_later
+    redirect_to root_path
   end
 
 
@@ -51,6 +53,6 @@ class ProjectsController < ApplicationController
   end
 
   def require_admin
-    redirect_back(fallback_location: root_path, flash: {danger: "You don't have permission for that"})unless current_user.role == "Admin"
+    redirect_back(fallback_location: root_path, flash: {danger: "You don't have permission for that"})unless current_user.role == "admin"
   end
 end
