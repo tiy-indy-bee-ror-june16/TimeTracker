@@ -30,6 +30,10 @@ class UsersController < ApplicationController
      @timers = @user.timers.where(project_id: params[:project_id])
    end
 
+# This is how clients get made.
+   def update
+   end
+
    private
 
    def user_params
