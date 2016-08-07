@@ -1,9 +1,9 @@
 .col-xs-4.col-xs-offset-1
-  %h2 Edit your Timstamp
+  %h2 Edit your Timestamp
   = form_for [@timer.project, @timer] do |f|
     %fieldset.form-group
       = f.label :value
       = f.text_field :value, :class => "form-control"
     %fieldset.form-group
-      = f.submit :class => "btn btn-primary"
-  = button_to "Delete Timer", project_timer_path(@timer), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary delete-button"
+      = f.submit :class => "btn btn-success"
+  = button_to "Delete Timer", project_timer_path(@timer), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-success delete-button"
