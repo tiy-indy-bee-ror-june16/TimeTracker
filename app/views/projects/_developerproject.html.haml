@@ -2,6 +2,7 @@
   .well
     %h4
       = project.title
+    %h4
       %small
         = "Project Time: #{project.timers.where(user_id: @current_user.id).inject(0){|sum,x| sum + x.value}/3600.floor}hrs"
     %p
