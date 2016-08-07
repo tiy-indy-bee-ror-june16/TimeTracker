@@ -23,3 +23,37 @@ select{
   border-top: 4px solid white;
   margin-top: 10px;
 }
+
+.form-inline {
+  margin-bottom: 10px;
+}
+
+.projectwells {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.red-text{
+  color:red;
+}
+
+.admin-wells{
+  height: 290px;
+  overflow: scroll;
+}
+
+.div-height {
+  height:310px;
+}
+
+.extra-large-btn{
+  width: 250px;
+  height: 80px;
+  background-color: #337AB7;
+  font-family: helvetica;
+  font-size: 20px;
+}
+
+.red-wells{
+  background-color: red;
+}

@@ -38,10 +38,14 @@ projects = 8.times.map do
     usedusers << user
     tempproject.users << user
     timers = 3.times.map do
+      value = rand(10800..28800)
+      starttime = Faker::Time.between(8.days.ago, Date.today, :day)
       Timer.create!(
-      value: rand(12),
+      value: value,
       user: user,
-      project: tempproject
+      project: tempproject,
+      updated_at: starttime + value,
+      created_at: starttime
       )
     end
   end
