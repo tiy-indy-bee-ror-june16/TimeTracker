@@ -1,3 +1,9 @@
+/*for padding required for fixed navbar*/
 body {
   padding-top: 140px;
+}
+
+/*background color for navbar*/
+.navbar {
+  background-color: #63BF74;
 }
