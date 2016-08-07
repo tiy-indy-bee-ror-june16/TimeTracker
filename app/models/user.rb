@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def week_hours
-    timers.where(created_at: Date.today.at_beginning_of_week(:sunday).beginning_of_day..Date.today.end_of_day).sum("value")
+    (timers.where(created_at: Date.today.at_beginning_of_week(:sunday).beginning_of_day..Date.today.end_of_day).sum("value")/3600).round(2)
   end
 
   def overtime?
