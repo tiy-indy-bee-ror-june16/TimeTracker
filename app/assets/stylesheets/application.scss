@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'main';
+@import "font-awesome";
 
 
 .add_user_sidebar{
@@ -56,4 +58,10 @@ select{
 
 .red-wells{
   background-color: red;
+}
+
+.delete-button {
+  position: relative;
+  top: -49px;
+  left: 125px;
 }

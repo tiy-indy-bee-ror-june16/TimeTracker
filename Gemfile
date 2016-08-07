@@ -37,6 +37,9 @@ gem "haml-rails", "~> 0.9"
 # added bootstrap gem for formatting
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# added for font awesomeness
+gem "font-awesome-rails"
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
