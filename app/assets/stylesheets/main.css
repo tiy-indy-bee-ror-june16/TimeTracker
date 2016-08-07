@@ -36,7 +36,7 @@ p {
   font-family: Verdana;
 }
 
-.copy, .loginform, .createuser {
+.copy, .loginform, .createuser, .well {
   background-color: #a2d6a2;
 }
 
