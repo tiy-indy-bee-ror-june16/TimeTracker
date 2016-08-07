@@ -13,15 +13,14 @@
           - flash.each do |key, message|
             %div{:class => "alert alert-#{key}", :role => "alert"}
               = simple_format message
-    %nav.navbar.navbar-default.navbar-fixed.top
-      .container
-        .row
-          %h1= link_to TimeTrackr, root_path
-          - if current_user
-            = "Welcome #{current_user.username}"
-            = link_to "Sign Out", logout_path, method: :delete, class: 'btn btn-default'
-          - else
-            %h3 The place where Developers track project time
+    .container
+      .row
+        %h1= link_to TimeTrackr, root_path
+        - if current_user
+          = "Welcome #{current_user.username}"
+          = link_to "Sign Out", logout_path, method: :delete, class: 'btn btn-default'
+        - else
+          %h3 The place where Developers track project time
 
 
     = yield
