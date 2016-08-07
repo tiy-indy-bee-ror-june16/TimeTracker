@@ -17,9 +17,6 @@
       .container
         .row
           %h1= link_to TimeTrackr, root_path
-          - if current_user
-            = "Welcome #{current_user.username}"
-            = link_to "Sign Out", logout_path, method: :delete, class: 'btn btn-default'
-          - else
-            = link_to "Sign Up", new_user_path, class: 'btn btn-default'
+          %h3 The place where Developers track project time
+
     = yield

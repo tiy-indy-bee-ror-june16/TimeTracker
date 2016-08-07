@@ -1,16 +1,14 @@
-
-
-
-
--# Need to set up copy and perhaps an image or two...
-.row
-  .col-md-3.col-md-offset-1
-    = form_tag("/login", method: "post") do
-      %fieldset.form-group
-        = label_tag(:username, "Username:")
-        = text_field_tag(:username)
-      %fieldset.form-group
-        = label_tag(:password, "Password :")
-        = password_field_tag(:password)
-      %fieldser.form-group
-        = submit_tag("Login")
+.container
+  .row
+    .col-md-9
+      %h3 Welcome to TimeTrackr
+      %p You have ventured upon this page because someone sent you a link, eh?
+      %p If you are a returning developer, please log in to the right.
+      %p If you are visiting us for the first time, please click on the create new button to the right.
+      =image_tag "ticktock.gif"
+    .col-md-3
+      .well.loginform
+      
+      .well.createuser
+        %p New Developers create a user profile by clicking on the button below.
+        = link_to "Create Profile", 'users/new', class: "btn btn-default"
