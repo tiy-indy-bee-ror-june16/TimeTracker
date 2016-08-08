@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var index = 'http://localhost:3000/'
+  var index = 'https://calm-harbor-74411.herokuapp.com/'
   $('.timerendbutton').hide()
 
   $('.timerstartbutton').on('click', function(ev){
