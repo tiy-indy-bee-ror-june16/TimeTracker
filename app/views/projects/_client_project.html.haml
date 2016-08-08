@@ -1,0 +1,19 @@
+.col-xs-6.div-height
+  -if project.actual_time > (project.estimated_time)*0.9 && project.actual_time <= project.estimated_time
+    .well.admin-wells.yellow-wells
+      %h2.text-center= project.title
+      %h4= "Estimated Time: #{project.estimated_time}"
+      %h4= "Total Running Time: #{project.actual_time}"
+      %p= project.summary
+  -elsif project.actual_time > project.estimated_time
+    .well.admin-wells.red-wells
+      %h2.text-center= project.title
+      %h4= "Estimated Time: #{project.estimated_time}"
+      %h4= "Total Running Time: #{project.actual_time}"
+      %p= project.summary
+  -else
+    .well.admin-wells
+      %h2.text-center= project.title
+      %h4= "Estimated Time: #{project.estimated_time}"
+      %h4= "Total Running Time: #{project.actual_time}"
+      %p= project.summary
