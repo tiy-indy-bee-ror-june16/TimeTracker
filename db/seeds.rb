@@ -38,7 +38,7 @@ projects = 8.times.map do
   title: Faker::Company.catch_phrase,
   owner_id: adminusers.sample.id,
   summary: Faker::Company.catch_phrase,
-  estimated_time: Faker::Number.between(50, 70),
+  estimated_time: Faker::Number.between(50, 200),
   client_id: clientusers.sample.id
   )
   usedusers = []
