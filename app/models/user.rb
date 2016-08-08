@@ -14,7 +14,13 @@ class User < ApplicationRecord
     if role == "admin"
       my_projects = Project.where(owner_id: id)
     end
-    puts(my_projects)
+    my_projects
+  end
+
+  def client_projects
+    if role == "client"
+      my_projects = Project.where(client_id: id)
+    end
     my_projects
   end
 
@@ -23,7 +29,7 @@ class User < ApplicationRecord
   end
 
   def overtime?
-    (week_hours) > 40 ? true : false
+    week_hours > 40 ? true : false
   end
 
 
