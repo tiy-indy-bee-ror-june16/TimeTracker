@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
       #future view with this name in views/projects
       render :developer_dashboard
     elsif current_user&.role == "client"
+      @client_projects = current_user.client_projects
       render :client_dashboard
     else
       render :marketing_front_page
