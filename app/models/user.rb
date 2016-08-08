@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :timers
   has_many :userprojects
 
-  validates :email, presence: true, uniqueness: true
-  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
+  validates :username, presence: true, uniqueness: true, format: {with: /\A[a-zA-Z0-9\-_]+\z/}
   validates :role, presence: true
 
 

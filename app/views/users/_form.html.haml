@@ -1,0 +1,13 @@
+.row
+  .col-md-10.text-left
+    = form_for [@project, @user].compact do |f|
+      %fieldset.form-group
+        = f.label :username
+        = f.text_field :username, class: "form-control", :placeholder => "Username"
+      %fieldset.form-group
+        = f.label :email
+        = f.text_field :email, class: "form-control", :placeholder => "Email Address"
+      %fieldset.form-group
+        = f.label :password
+        = f.password_field :password, class: "form-control", :placeholder => "Password"
+      = f.submit :class => "btn btn-success"
