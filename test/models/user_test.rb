@@ -3,11 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   test "by default, users should have a role of 'developer'" do
-    user = User.create!(
-      email: Faker::Internet.email,
-      username: "bucky",
-      password: 'playground'
-    )
+    user = create(:user)
     assert_equal "developer", user.role
   end
 
