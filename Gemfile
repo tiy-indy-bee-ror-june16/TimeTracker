@@ -52,6 +52,7 @@ end
 
 group :test do
   gem 'capybara', git: 'https://github.com/jnicklas/capybara.git'
+  gem 'shoulda'
 end
 
 group :development do
