@@ -39,7 +39,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 # added for font awesomeness
 gem "font-awesome-rails"
-
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+gem 'sinatra', github: 'sinatra' #require master to get the rack >= 2.0
+gem 'rack-protection', github: 'sinatra/rack-protection'
+gem 'refile', require: 'refile/rails', github: 'pgericson/refile', branch: 'stupid-hack-sinatra-version' # remove version on gem dependency to use sinatra master branch
+gem 'refile-mini_magick'
+gem 'refile-postgres', '~> 1.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
