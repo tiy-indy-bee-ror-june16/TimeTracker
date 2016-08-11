@@ -12,6 +12,8 @@ class Project < ApplicationRecord
 
   attachment :image, type: :image
 
+  default_scope { order(updated_at: :desc) }
+
   def actual_time
     (Timer.where(project_id: id).sum("value")/3600.0).round(1)
   end

@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
 gem 'faker'
 gem 'figaro'
+gem 'chartkick'
+gem 'groupdate'
+gem 'ransack'
 
 # added haml gems for view formatting
 gem 'haml'

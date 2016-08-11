@@ -4,8 +4,21 @@ class ProjectsController < ApplicationController
 
   def index
     if current_user&.role == "admin"
-      @admin_projects = current_user.admin_projects
+      if params[:filter]
+        admin_projects = current_user.admin_projects.ransack(params[:filter])
+        admin_projects.sorts = params[:sort] if params[:sort]
+        @admin_projects = admin_projects.result
+      else
+        @admin_projects = current_user.admin_projects
+      end
       @developers = User.where(role: "developer")
+      @chart_data = @admin_projects.inject({}) do |hash, project|
+        hash[project.title] = Timer.unscoped.where(project: project)
+            .group_by_day(:created_at).sum(:value)
+        hash
+      end
+      [1,2,3,4,5,6,7].inject(0){|sum, num| sum + num}
+      Rails.logger.info @chart_data.inspect
       #future view with this name in views/projects
       render :admin_dashboard
     elsif current_user&.role == "developer"
@@ -60,6 +73,10 @@ class ProjectsController < ApplicationController
 
 
   private
+
+  def search_params
+    params.require(:filter)
+  end
 
   def project_params
     params.require(:project).permit(:title, :summary, :estimated_time, :owner_id, :client_id, :client_email, :client_name)
