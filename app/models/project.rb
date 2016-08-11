@@ -10,6 +10,8 @@ class Project < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :estimated_time, presence: true
 
+  attachment :image, type: :image
+
   def actual_time
     (Timer.where(project_id: id).sum("value")/3600.0).round(1)
   end
