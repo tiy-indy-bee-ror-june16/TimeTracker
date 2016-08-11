@@ -5,6 +5,7 @@
       -# = admin_project
   .col-xs-3.add_user_sidebar.well.text-white
     .row
+      = pie_chart @developers.map{|dev| [dev.username, dev.week_hours]}, library: {legend: { display: false }}
       %h3
         Weekly Developer Hour Log
       %h4
